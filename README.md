@@ -28,10 +28,16 @@ pip install -r requirements.txt
 
 ## Utilisation
 
-Expliquez comment utiliser l'application avec des exemples de commandes. Par exemple :
+Lancez l'application avec cette commande:
 
 ```bash
 uvicorn main:app --reload
+```
+
+Faites une requête POST avec l'image en payload
+
+```bash
+curl -X POST -F 'file=@path/to/your/image.jpg' http://localhost:8000/remove-bg --output processed_image.png
 ```
 
 Visitez http://localhost:8000/docs pour accéder à la documentation Swagger de l'API et tester les endpoints.
