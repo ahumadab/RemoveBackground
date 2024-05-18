@@ -15,6 +15,11 @@ def read_root():
 @app.post("/remove-bg")
 async def handle_remove_background(file: UploadFile = File(...)):
     input_image = await file.read()
+
+    """print(file)
+    output_image = Image.open(io.BytesIO(input_image))
+    output_image.save("output.png")"""
+
     output_image = remove_background(input_image)
     output_io = convert_png(output_image)
 
