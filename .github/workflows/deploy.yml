@@ -22,8 +22,8 @@ jobs:
 
       - name: Deploy
         run: |
-          rsync -avz -e "ssh -p ${{ secrets.PORT }}" --exclude '.git' . ${{ secrets.USER }}@${{ secrets.HOSTNAME }}:/toto
-          ssh -p ${{ secrets.PORT }} ${{ secrets.USER }}@${{ secrets.HOSTNAME }} 'cd /toto && ./deploy.sh'
+          rsync -avz -e "ssh -p ${{ secrets.PORT }}" --exclude '.git' . ${{ secrets.USER }}@${{ secrets.HOSTNAME }}:/home/${{ secrets.USER }}/toto
+          ssh -p ${{ secrets.PORT }} ${{ secrets.USER }}@${{ secrets.HOSTNAME }} 'cd ./toto && ./deploy.sh'
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           USER: ${{ secrets.USER }}
